@@ -105,6 +105,6 @@ All colors MUST be HSL.
   }
 
   html {
-    @apply dark;
+    /* Light mode is default */
   }
 }
