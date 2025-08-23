@@ -13,8 +13,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Settings() {
+  const { theme, setTheme } = useTheme();
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -110,7 +112,7 @@ export default function Settings() {
             <CardContent className="space-y-6">
               <div className="space-y-2">
                 <Label>Theme</Label>
-                <Select defaultValue="dark">
+                <Select value={theme} onValueChange={setTheme}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>

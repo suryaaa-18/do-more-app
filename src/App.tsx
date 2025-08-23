@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { AuthProvider, useAuth } from "./hooks/useAuth";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Index from "./pages/Index";
 import Tasks from "./pages/Tasks";
 import Analytics from "./pages/Analytics";
@@ -47,15 +48,15 @@ function AppContent() {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <AuthProvider>
-        <div className="dark">
+      <ThemeProvider defaultTheme="light" storageKey="task-app-theme">
+        <AuthProvider>
           <Toaster />
           <Sonner />
           <BrowserRouter>
             <AppContent />
           </BrowserRouter>
-        </div>
-      </AuthProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
