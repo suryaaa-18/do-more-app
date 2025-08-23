@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/hooks/useAuth';
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: Home },
@@ -24,6 +25,7 @@ const navigation = [
 export function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const location = useLocation();
+  const { signOut } = useAuth();
 
   return (
     <div className={cn(
@@ -77,6 +79,7 @@ export function Sidebar() {
             "w-full justify-start gap-3",
             isCollapsed && "justify-center"
           )}
+          onClick={signOut}
         >
           <LogOut className="h-5 w-5" />
           {!isCollapsed && <span>Sign Out</span>}
