@@ -6,7 +6,7 @@ import { SupabaseStatus } from '@/components/SupabaseStatus'
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true)
   
-  const isSupabaseConfigured = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY)
+  const isSupabaseConfigured = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY)
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">

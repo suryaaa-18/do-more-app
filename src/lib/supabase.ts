@@ -1,7 +1,7 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string | undefined
 
 export const SUPABASE_CONFIGURED = Boolean(supabaseUrl && supabaseAnonKey)
 
@@ -10,7 +10,7 @@ export let supabase: SupabaseClient | null = null
 if (SUPABASE_CONFIGURED) {
   supabase = createClient(supabaseUrl!, supabaseAnonKey!)
 } else {
-  console.warn('Supabase not configured: missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY')
+  console.warn('Supabase not configured: missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY')
 }
 
 export type Database = {
